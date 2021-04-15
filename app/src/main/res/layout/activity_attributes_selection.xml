@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:id="@+id/attributes_selection_ll"
+    tools:context=".AttributesSelectionActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/colorText"
+        android:text="Attributes selection"
+        android:textSize="30sp"/>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="35dp">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Attribute 1"
+            android:textStyle="bold"
+            android:gravity="left"
+            android:textColor="@color/colorText" />
+        <Switch
+            android:id="@+id/switch_attribute1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:theme="@style/MySwitch"
+            tools:ignore="UseSwitchCompatOrMaterialXml">
+
+        </Switch>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/txt_stateAttribute_1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="7dp"
+        android:fontFamily="@font/roboto"
+        android:text="State: Disclosure is not required"
+        android:textSize="10sp"
+        android:textStyle="italic" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Attribute 2"
+            android:gravity="left"
+            android:textColor="@color/colorText" />
+        <Switch
+            android:id="@+id/switch_attribute2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:theme="@style/MySwitch"
+            tools:ignore="UseSwitchCompatOrMaterialXml">
+
+        </Switch>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/txt_stateAttribute_2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textSize="10sp"
+        android:layout_marginRight="25dp"
+        android:textStyle="italic"
+        android:text="State: Disclosure is not required"
+        android:layout_marginBottom="7dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Attribute 3"
+            android:gravity="left"
+            android:textColor="@color/colorText" />
+        <Switch
+            android:id="@+id/switch_attribute3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:theme="@style/MySwitch"
+            tools:ignore="UseSwitchCompatOrMaterialXml">
+
+        </Switch>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_stateAttribute_3"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textSize="10sp"
+        android:layout_marginRight="25dp"
+        android:textStyle="italic"
+        android:text="State: Disclosure is not required"
+        android:layout_marginBottom="7dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Attribute 4"
+            android:gravity="left"
+            android:textColor="@color/colorText" />
+        <Switch
+            android:id="@+id/switch_attribute4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:theme="@style/MySwitch"
+            tools:ignore="UseSwitchCompatOrMaterialXml">
+
+        </Switch>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_stateAttribute_4"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textSize="10sp"
+        android:layout_marginRight="25dp"
+        android:textStyle="italic"
+        android:text="State: Disclosure is not required"
+        android:layout_marginBottom="7dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Attribute 5"
+            android:gravity="left"
+            android:textColor="@color/colorText" />
+        <Switch
+            android:id="@+id/switch_attribute5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:theme="@style/MySwitch"
+            tools:ignore="UseSwitchCompatOrMaterialXml">
+
+        </Switch>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_stateAttribute_5"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textSize="10sp"
+        android:layout_marginRight="25dp"
+        android:textStyle="italic"
+        android:text="State: Disclosure is not required"
+        android:layout_marginBottom="7dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Attribute 6"
+            android:gravity="left"
+            android:textColor="@color/colorText" />
+        <Switch
+            android:id="@+id/switch_attribute6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:theme="@style/MySwitch"
+            tools:ignore="UseSwitchCompatOrMaterialXml">
+
+        </Switch>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_stateAttribute_6"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textSize="10sp"
+        android:layout_marginRight="25dp"
+        android:textStyle="italic"
+        android:text="State: Disclosure is not required"
+        android:layout_marginBottom="7dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Attribute 7"
+            android:gravity="left"
+            android:textColor="@color/colorText" />
+        <Switch
+            android:id="@+id/switch_attribute7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:theme="@style/MySwitch"
+            tools:ignore="UseSwitchCompatOrMaterialXml">
+
+        </Switch>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_stateAttribute_7"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textSize="10sp"
+        android:layout_marginRight="25dp"
+        android:textStyle="italic"
+        android:text="State: Disclosure is not required"
+        android:layout_marginBottom="7dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Attribute 8"
+            android:gravity="left"
+            android:textColor="@color/colorText" />
+        <Switch
+            android:id="@+id/switch_attribute8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:theme="@style/MySwitch"
+            tools:ignore="UseSwitchCompatOrMaterialXml">
+
+        </Switch>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_stateAttribute_8"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textSize="10sp"
+        android:layout_marginRight="25dp"
+        android:textStyle="italic"
+        android:text="State: Disclosure is not required"
+        android:layout_marginBottom="7dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Attribute 9"
+            android:gravity="left"
+            android:textColor="@color/colorText" />
+        <Switch
+            android:id="@+id/switch_attribute9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:theme="@style/MySwitch"
+            tools:ignore="UseSwitchCompatOrMaterialXml">
+
+        </Switch>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_stateAttribute_9"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textSize="10sp"
+        android:layout_marginRight="25dp"
+        android:textStyle="italic"
+        android:text="State: Disclosure is not required"
+        android:layout_marginBottom="7dp"/>
+
+    <Button
+        android:id="@+id/btn_confirm_selection"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="7dp"
+        android:background="@drawable/button_bg_custom_set"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Confirm selection"
+        android:textColor="#FFFF" />
+
+</LinearLayout>
