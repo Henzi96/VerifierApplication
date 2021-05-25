@@ -35,7 +35,7 @@ public class MenuActivity extends AppCompatActivity {
         btn_attribute_selection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent attributesSelectionIntent = new Intent(MenuActivity.this, CryptographyCredentialMenuActivity.class);
+                Intent attributesSelectionIntent = new Intent(MenuActivity.this, CryptoCredMenuActivity.class);
                 startActivity(attributesSelectionIntent);
             }
         });

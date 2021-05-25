@@ -27,6 +27,8 @@ public class CryptoCore {
     //Order of BN256 as a BigInteger
     BigInteger BN256_q = new BigInteger("2523648240000001ba344d8000000007ff9f800000000010a10000000000000d", 16);
     private static final char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    long startTime = 0;
+    long stopTime = 0;
 
     CryptoCore(Context context) {
         this.context = context;
@@ -40,22 +42,18 @@ public class CryptoCore {
     }
 
     public boolean verify() {
+        startTime = System.nanoTime();
         SharedPreferences sharedPreferences = context.getSharedPreferences(Constants.SystemParameters.VERIFIER_DATA, Context.MODE_PRIVATE);
         //t_verify
         G1 t_verify = compute_t_verify(sharedPreferences);
-        System.out.println("t_verify: "+ t_verify.toString());
         //t_revoke
         G1 t_revoke = compute_t_revoke(sharedPreferences);
-        System.out.println("t_revoke: "+ t_revoke.toString());
         //t_sig
         G1 t_sig = compute_t_sig(sharedPreferences);
-        System.out.println("t_sig: "+ t_sig.toString());
         //t_sigI
         G1 t_sigI = compute_t_sigI(sharedPreferences);
-        System.out.println("t_sigI: "+ t_sigI.toString());
         //t_sigII
         G1 t_sigII = compute_t_sigII(sharedPreferences);
-        System.out.println("t_sigII: "+ t_sigII.toString());
         //e
         Fr e = compute_e(t_verify, t_revoke, t_sig, t_sigI, t_sigII, sharedPreferences);
         //e check
@@ -64,6 +62,8 @@ public class CryptoCore {
         boolean first_pairing_equals = verify_first_pairing(sharedPreferences);
         //Second pairing check
         boolean second_pairing_equals = verify_second_pairing(sharedPreferences);
+        stopTime = System.nanoTime();
+        System.out.println("TIME crypto: " + (stopTime-startTime));
         return (e_equals && first_pairing_equals && second_pairing_equals);
     }
 
@@ -148,7 +148,7 @@ public class CryptoCore {
         //nonce
         String nonce_HEX = sharedPreferences.getString(Constants.SystemParameters.NONCE, "00");
         //hash
-        String hash = SHA1(t_verify_HEX + t_revoke_HEX + t_sig_HEX + t_sig_I_HEX + t_sig_II_HEX + sigma_roof_HEX + sigma_roof_eI_HEX + sigma_plane_eI_HEX + sigma_roof_eII_HEX + sigma_plane_eII_HEX + C_HEX + nonce_HEX);
+        String hash = SHA1(t_verify_HEX + t_revoke_HEX + t_sig_HEX + t_sig_I_HEX + t_sig_II_HEX + sigma_roof_HEX + sigma_roof_eI_HEX + sigma_roof_eII_HEX + sigma_plane_eI_HEX + sigma_plane_eII_HEX + C_HEX + nonce_HEX);
         BigInteger hash_mod_q_BigInt = new BigInteger(SHA1_PADDING + hash, 16);
         hash_mod_q_BigInt.mod(BN256_q);
         hash = hash_mod_q_BigInt.toString(16);

@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CryptographyCredentialMenuActivity extends AppCompatActivity {
+public class CryptoCredMenuActivity extends AppCompatActivity {
     private Button btn_eid, btn_ticket, btn_employee_card, btn_userDefined;
 
     @Override
@@ -26,7 +26,7 @@ public class CryptographyCredentialMenuActivity extends AppCompatActivity {
         btn_eid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent eidIntent = new Intent(CryptographyCredentialMenuActivity.this, EidActivity.class);
+                Intent eidIntent = new Intent(CryptoCredMenuActivity.this, EidActivity.class);
                 startActivity(eidIntent);
             }
         });
@@ -34,7 +34,7 @@ public class CryptographyCredentialMenuActivity extends AppCompatActivity {
         btn_ticket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ticketIntent = new Intent(CryptographyCredentialMenuActivity.this, TicketActivity.class);
+                Intent ticketIntent = new Intent(CryptoCredMenuActivity.this, TicketActivity.class);
                 startActivity(ticketIntent);
             }
         });
@@ -42,7 +42,7 @@ public class CryptographyCredentialMenuActivity extends AppCompatActivity {
         btn_employee_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent employeeCardIntent = new Intent(CryptographyCredentialMenuActivity.this, EmployeeCardActivity.class);
+                Intent employeeCardIntent = new Intent(CryptoCredMenuActivity.this, EmployeeCardActivity.class);
                 startActivity(employeeCardIntent);
             }
         });
@@ -50,7 +50,7 @@ public class CryptographyCredentialMenuActivity extends AppCompatActivity {
         btn_userDefined.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent userDefinedIntent = new Intent(CryptographyCredentialMenuActivity.this, UserDefinedActivity.class);
+                Intent userDefinedIntent = new Intent(CryptoCredMenuActivity.this, UserDefinedActivity.class);
                 startActivity(userDefinedIntent);
             }
         });

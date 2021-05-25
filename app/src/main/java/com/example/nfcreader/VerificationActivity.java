@@ -25,6 +25,7 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
     private LottieAnimationView lottie_verification;
     private final String ZERO_BYTE = "00";
     private String currentDate;
+    Calendar calendar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -33,7 +34,7 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
         setContentView(R.layout.activity_verification);
         txt_verification_state = findViewById(R.id.txt_verification_state);
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-        Calendar calendar = Calendar.getInstance();
+        calendar = Calendar.getInstance();
         currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
     }
 
@@ -78,7 +79,7 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
 
             //INS_SET_USER_IDENTIFIER
 /*            if (Utils.byteArrayToHexString(response).equals("9000")) {
-                String data = "1000000000000018".toUpperCase();
+                String data = "1000000000000004".toUpperCase();
                 apduCommand.setCLA("70");
                 apduCommand.setINS("0B");
                 apduCommand.setP1("00");
@@ -108,7 +109,7 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
                 apduCommand.setP1("01");
                 apduCommand.setP2("06");
                 apduCommand.setLC("61");
-                apduCommand.setDATA("02EB0EFD35BDFCB96132BA9BB3864339FA34C0EBF18B6C75A4021DDC5DE2F8A6040FD842AFC0C05A0859013C105B51E0CFD11960D56B128ED1902588D60F846F3D1421478FFFFC016932E4B7F840EC2FBAAE345FB5D69FE2B9D1F69DF73C07ACCE");
+                apduCommand.setDATA("108AD0190590A76A939C261747F22FF1FAD6C689D8C5BEDB6934F603225A5A16041D2E912CB510128C5D4B70437CAF06977B990E4E693D5B97DA0A34CE9B37779C1E0FE27C76E3F68730BFEA2A61BCE865E9F4AEA86F6E18789293DA65973D4C81");
                 apduCommand.setLE("");
                 final byte[] response2 = isoDep.transceive(Utils.hexStringToByteArray(apduCommand.toString()));
                 if (Utils.byteArrayToHexString(response2).toUpperCase().equals("91AF")) {
@@ -117,7 +118,7 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
                     apduCommand.setP1("02");
                     apduCommand.setP2("06");
                     apduCommand.setLC("FA");
-                    apduCommand.setDATA("0A0205A53FD9729845FCEA8B1299E2B0EDC492AB3FEA001DDCF39B06871E3244BDB60083FB78C9B7B18FF87085750B794037E954885934FB2229ADDCC5DA3AF7F29304057FF33DC2B982D9962275749491FC74536F3F06C42376AA4C5561C08E84437E1BA706E53D9B0F1B3FD592A2B61DF28EF8EB62AA54749EFEE101D5CB8F839C470406B0C79FBFC05C9448035B96A44555506F962D16873B5BCD4778F0FD36B3D78B1094DE5EA56593CCEC7E9E6E4E558D7FE5A05438EDF564CDAB25D2974AB1339F001C12FE621F6FF75A3B115364521C970CF8C853B9CD379D46E41E36C29553EB34000B6CA5E8F9CF28690A1EC4CBA20066B49DD0CC53");
+                    apduCommand.setDATA("0A021A32E3ABA84525FE5D7F3782370CD1055FE4DD012758AFC010457E978EB15829190DFEA4BBC5826D455EFF9DF17FA070070464998B2ECEA4150B9993A2812AE30417E55666B0B25906544D9E67A123FFAFA294AE8826E14F80D95325C90A4C55112004F83D9C3A2EB80BAB6BE3AFB17B87FE6D825CCA90D0021C5997633CA5CCF9040E45472E94122E45BD4DA2E5E818800928E1DC22FABC4723E867D1760A8112DA1C50D3CC6A558DBFF9B395B553CC7D8D693DC20CB398125CE26620864F8020F1000934981F1A4379F6818C4A1FBA59E909D286B0A904C904FF34BCA16AE362B6D80005298AB19A8E5AAB5B101C7ED75E4CD35D4A7422");
                     apduCommand.setLE("");
                     final byte[] response3 = isoDep.transceive(Utils.hexStringToByteArray(apduCommand.toString()));
                     if (Utils.byteArrayToHexString(response3).toUpperCase().equals("91AF")) {
@@ -126,7 +127,7 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
                         apduCommand.setP1("03");
                         apduCommand.setP2("06");
                         apduCommand.setLC("FA");
-                        apduCommand.setDATA("9AB480B0EB9E4BFA31E6A461001B2D87CC4836852ED28F08E8C2888254F84100FC45421E770956E1408E8D5B37001CECD66821C5C0E391CDB5E89A1283FB537AB707917E771957FD08F6CE62CE4E00135C31641DD175EB263A5935ACBBECCF2E710750126D59F436BC0033EE4215EC001FF2B2C1828F0C316139AFA9C923677577DECEEFDA436E0392AA6F43004B76BE0008EF5E289F2A7F70E625EA3F17B9D3E2D04F8C7C73A52FD9E7EC7F8FA46467130016B0FF830F8B4FC2BF1B5A9EC65AE7FC74077DF02841FF6F2230BF311E65B9BE0022C28C729E65FE67A7B81D7AA5906475AB735481A771EFECBC25312777EA24A00023D8F07CF2BD");
+                        apduCommand.setDATA("F342674451B7F6ED632F4FB70007D38ED851A9AF0ADA168C7890D77C34E0B810526FA3001357A76170705FBFA30008B00884F15CAFE8A762BD524CAC02FF3817AD0C2F3B629FB779B3521F59216B000EBEBCD0FBFC804131FD58181A260870C2CED3F07E58C659BF7BE72AE0C4CBAD0006F04D43CBF6C077DAF5188B2916DD26C642D94738F76370A81389035C2078D0001844609084A6C3204483345FA05F400310ABBF2295F7F4CF77B177B98BF9BE9D0009AE0F36F653D44A8E80C67DCE3FF67AEB2C0277F1E655C8F7465841DC5C70B9000A8F99751DA1F33394F8575D99113337130709BA8DDF1B32C8073BD2EBEE27DF0010625E99D597");
                         apduCommand.setLE("");
                         final byte[] response4 = isoDep.transceive(Utils.hexStringToByteArray(apduCommand.toString()));
                         if (Utils.byteArrayToHexString(response4).toUpperCase().equals("91AF")) {
@@ -135,7 +136,7 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
                             apduCommand.setP1("04");
                             apduCommand.setP2("06");
                             apduCommand.setLC("FA");
-                            apduCommand.setDATA("228DD35F6207A62460B324534966BBABD0DCC1784E896530A15504229BF826CF5679DD76E8DA7FC15CFCE294BAA08D658C7941C86A214C085E418317A8779CBD33E96B2EF6AE965C955102836545829F299DD5C015CEE9F3F58A8F04243CBA4B2057C0C8F76606F56597B5A0294C6F3AB4F2FA051E14770626E8CFC32458BE01B019E1B10F7D7B759F4B206190AFD92B7239992736C61ACAACAD6AA9041553242BEA60957B3F0A1313014EF12AE233B84C3835A7EE0317067010D7F34E13EB015633B35D15D9DB517E2F485FD30BE0B056DA06F17F9E372F81ADDD7E2204223360FFC1024E09A326EFCAEB6301E364ECE4800971C881EB2C3C2F");
+                            apduCommand.setDATA("6C4674DDD5F4E7F1FCB6C16A0035F4418385890868B8FC8DD6850420E805A3107F5ABC9F7EEB2D92EAE80A447BBBCFF8B7A569BE3DB8BD3A7E768700A97E2DF24FE40E8BDE2FAD3FCC4645D49D39DB7FCA6A9B834F8FFCD0FB06A20420225CFBE3F70BC5A65CABF1168FB3FF8BBD144CD47FB7FB94EF37C0B866F9EF117E5BC68C7F9A810122CF17E0A5B0220C84B738EE443CD0FB9F568367B2BADA041E019BB7FBEAA75AA74E91378AAA18B5C06A40226AC5A0711BE8D9E11351457D1C8522C4044702DB259B58293A3D22F079476A175B18EAD90DC7C49799440B7604231CE473C524F8B4582BB4DFE2759086A82684E8992EF9F98CFF4E0D");
                             apduCommand.setLE("");
                             final byte[] response5 = isoDep.transceive(Utils.hexStringToByteArray(apduCommand.toString()));
                             if (Utils.byteArrayToHexString(response5).toUpperCase().equals("91AF")) {
@@ -144,7 +145,7 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
                                 apduCommand.setP1("05");
                                 apduCommand.setP2("06");
                                 apduCommand.setLC("FA");
-                                apduCommand.setDATA("964A25C40CE613D0C7CE086503CCCB8D91F9492EA3E8B079860128FDBBAA6F210EE50B49041A4D069D4BDE557A481E8E3A98ACA8F8EF58A89BB305B3A38A17F20F10DABAF30943B51DCD2338A56A3D2E8C1DB41F9CC7364FE05D0ED20A4C117F08265BD51904155E3AACE907A094F31153BD656C36B3D686009A1CA93EFA946DAC9C5B764DBE01550A0A6AAEFA2294BDF9CAB06DD5CD98A6DD608FB4F68C2ED7F5CDE54B44F40423237BF93DC921CEAE23C2B892949CCC57C97BA882C570AECE2647B9C5EB80F41FCA7C66E3ED64CF39B4CE2A80CEDFD606BF6A65DD28C844C02F818AAFAA04920418E3C0FAC36DAA1230F161EABE443C199792");
+                                apduCommand.setDATA("E1FCDCA701029BDCFF29AC0F4520F92C09B19921548B102E378E67888D598FCD6BA9D10B041CF7C96A029171E5B82A97D4B3F38C376FCEBA037C08010261AFEF47EFB9C434224DFDB90125AC747AF6DFBBC301298E78CED39B80A02EC72BA4B696BAD9FF500409A8F38FC35DB9B59E8AC44C063F40D550D403F3EE75EC904F0FBC1E5A908E341350A826579D4BE25C7AF06D2CD31EF35E774A64222204C61598F7C232F62997041A8E7BD1C986DFC71ACC99FF5C757BE3C640B2007DBAF26CC42606B40076877422C425703A799837D6849556EE72AF0190F0E06EC24E126E4ECB81DC781C1AEF041C6D33891B17E93279874D352D6E23583DB6");
                                 apduCommand.setLE("");
                                 final byte[] response6 = isoDep.transceive(Utils.hexStringToByteArray(apduCommand.toString()));
                                 if (Utils.byteArrayToHexString(response6).toUpperCase().equals("91AF")) {
@@ -153,7 +154,7 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
                                     apduCommand.setP1("06");
                                     apduCommand.setP2("06");
                                     apduCommand.setLC("B0");
-                                    apduCommand.setDATA("EF29CAC345BF78D3421634396815071F0F830BBE78185D0B737B77E2F125AA38B0C34DF752E6BC4A228CEB97F1BB041016E41CA9E0CB59D5B640D3BFB4976C71378A47B4F9C1ED8AC4D32D1765238600EA8F5BD9670F89174381FD44F974D8C620AF89196DE67E03A5EF3DD23791B8040FCC1D32956D64553F49E09E425D17AD04862859AC241AD8DE868ED2B82832351577D2492F6A7338D17DDF73E6CF54EFA3CED995B12EBF2FF42E38747B0A5ED9");
+                                    apduCommand.setDATA("60DB279128122EB20D76FFBBC3190586A9C058E4205030C878AB4AD45FAFF14EC7EAC83ED11BC343D7C9B516A799041F7E058149C454735E87986AEDAAE95AD2B7934C2008A37A42198A2B8FCE978B01E983C38AA80D1BF39C16F158AF3C4130FAE6CCD9EB76CBFD5B0CB17DF71401042169F550E6D1937CED216B50A78CF26F6203624106C9FCAB7E88412C4CC42EEA24A46BA138CE88DC08216AEEDFD16AAC7D71EFE2F1DC2CA36DEA4ECF11FAF1E5");
                                     apduCommand.setLE("");
                                     final byte[] response7 = isoDep.transceive(Utils.hexStringToByteArray(apduCommand.toString()));
                                     System.out.println(Utils.byteArrayToHexString(response7));
@@ -192,7 +193,7 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
 
             //INS_SET_ISSUER_SIGNATURES
 /*          if (Utils.byteArrayToHexString(response).equals("9000")) {
-                String data = "041470BB304307466D4816CE6EE189049BAF5EAD325DF8F00575CC151F20A7E0F90C0AE08438B2AD60762A361ECD3209F892E7030231A1ED154EAE997487E4DA7D04207F7F980C0F32EAE7BAFD5D8BCBB996C5B473D21C003903AEFF0374E6D58DC1105D147E27865280BD946A821B0D98015F26CF186F95C368BD72E773C0B6FC4C04092022BF3C5E476B80855A34E6D7A599DC56677C50458CC6E480AFCE0AE085A80DA99223375D00B4DA3E5ABFCA6285C165FAB82C5C9047AFF2F7858928C9941B040637C97870032862363ACC6806793BBB5AB49B0E7D166FEA5FCB26BFFD50642B1510D38DF9EB680902DB990DB76881C0DC455274CD75";
+                String data = "04050423C45A0095B1618752D9F128AEC3F951F51C3D211EC34AA6C6DA9E9EC3EB1C08264F7C341E30A88812A0D70D807C7362B735C38DFA858FAA5ACD9A122CC6041FE57C3130245F2000D4CBF8B0E8CE6F7A1A9DDD9A0B07E5F044F53837C251720074276087F6586C9258803B10A6CD7166536EB9FC894B723FA359B365500E70041751DB7F118C2700D416124F0A3BFFEC84F1408AB70B76A391F75FBF066ED63D011B2B218A1FF96C7E805743891404042B2692A97110AEA3F6B1E80D9A2466600414D2A7645476BEDE301898111CF80DC12E19F36841A969B81A426ADACCEA57990AAF7ACDB41AEC0A287011AFACC6812D0BE445F88AB8";
                 apduCommand.setCLA("70");
                 apduCommand.setINS("05");
                 apduCommand.setP1("01");
@@ -202,7 +203,7 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
                 apduCommand.setLE("");
                 final byte[] response2 = isoDep.transceive(Utils.hexStringToByteArray(apduCommand.toString()));
                 if (Utils.byteArrayToHexString(response2).toUpperCase().equals("91AF")) {
-                    data = "C7D05DB256CFD50F840B0405C139A45BD9A5B1A41964AE858301B6911D7F4E8307214B8CFE34E75253BB2E02BA6ABF5081CAC8D103C9E202EB372EC7265F195861F6F0BC94848754DA4FBE04012BD3F132C15046B61FF0348023D4F03354CEF5828442E7F23DF9BEA83A7604198E7F093840F235DAF67331197F71F1A486CC663868E8DCF850784EE88448B2040A198C2D4388C9DE9DED8937E13B3ADF817A249F8683A6430704212F6B93C6FD04E13EABCA3A24BA799CC488432E887E848870A72E760EB731D797FCA0C0419C";
+                    data = "62FBE163DF29406830BF041252D0AD6722E14C4AB3CD64AE5ADC82641063767DA8E8C7015B32D7E2F120BA0DD68C052DACFE57CFF75612091EFF4A458E33A5D3EFBF6D9F11BB0881350FCC041A605D918B563DF249DF616566A51FD4DA716D623673FDCBB7ED790A30A795B60A8309790915AAD16D10A0FDEE6A0AD8A1C09269990BC3ED854AEFA8257A322404232C850A34612B3F9F9CD6620518FECD272CA58986BF98465ECFB244A649AD810871488C21BF21DECBEB73786564F901A0535C8DA87966793BDF7C5A5746A36D";
                     apduCommand.setCLA("70");
                     apduCommand.setINS("05");
                     apduCommand.setP1("02");
@@ -219,36 +220,24 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
                 String data = "";
                 apduCommand.setCLA("70");
                 apduCommand.setINS("09");
-                apduCommand.setP1("10");
+                apduCommand.setP1("20");
                 apduCommand.setP2("04");
                 apduCommand.setLC("");
                 apduCommand.setDATA("");
                 apduCommand.setLE("");
                 final byte[] response2 = isoDep.transceive(Utils.hexStringToByteArray(apduCommand.toString()));
-                System.out.println(Utils.byteArrayToHexString(response2));
-            }*/
-
-                /*runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        textView.setText("\nCard Response n.2: " + (Utils.byteArrayToHexString(response2)));
-                    }
-                });
-
             }*/
             //INS_COMPUTE_PROOF_OF_KNOWLEDGE_SEQ_DISCLOSED
 /*            if (Utils.byteArrayToHexString(response).equals("9000")) {
-                String data = "6D0BC4908C9733F7760234FBD2A9429D5956115317DEAFDEDBB82AD2BFC8016602171220";
+                String data = "6237EB155B271AB642156C1F36AF4F0ED056C2E93E994909E41CB421E7391FDB01280421";
                 apduCommand.setCLA("70");
                 apduCommand.setINS("0A");
-                apduCommand.setP1("00");
-                apduCommand.setP2("00");
+                apduCommand.setP1("20");
+                apduCommand.setP2("04");
                 apduCommand.setLC(Utils.dataLengthCounter(data));
                 apduCommand.setDATA(data);
                 apduCommand.setLE("");
                 final byte[] response2 = isoDep.transceive(Utils.hexStringToByteArray(apduCommand.toString()));
-                System.out.println(Utils.byteArrayToHexString(response2));
-
             }*/
 
             //INS_GET_PROOF_OF_KNOWLEDGE P1="01"
@@ -306,7 +295,7 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
 
 
             }*/
-            ApduResponseObject response_to_SELECT_AID = new ApduResponseObject(Utils.byteArrayToHexString(isoDep.transceive(Utils.hexStringToByteArray(apduCommand.toString()))));
+           ApduResponseObject response_to_SELECT_AID = new ApduResponseObject(Utils.byteArrayToHexString(isoDep.transceive(Utils.hexStringToByteArray(apduCommand.toString()))));
             //CMD_TEST_BIT_CHECKER
             if (response_to_SELECT_AID.getS1_S2().equals(ApduCommandValues.SW1_SW2.SUCCESS)) {
                 ApduResponseObject response_to_CMD_TEST_BIT_CHECKER = CMD_TEST_BIT_CHECKER(isoDep, apduCommand);
@@ -667,9 +656,6 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
                 continue;
             }
         }
-        //C
-        editor.putString(Constants.SystemParameters.C, allData.substring(indexHolder, indexHolder + 130));
-        indexHolder += 130;
         //Sigma_roof
         editor.putString(Constants.SystemParameters.SIGMA_ROOF, allData.substring(indexHolder, indexHolder + 130));
         indexHolder += 130;
@@ -684,11 +670,16 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
         indexHolder += 130;
         //Sigma_plane_eII
         editor.putString(Constants.SystemParameters.SIGMA_PLANE_E_II, allData.substring(indexHolder, indexHolder + 130));
+        indexHolder += 130;
+        //C
+        editor.putString(Constants.SystemParameters.C, allData.substring(indexHolder, indexHolder + 130));
         editor.commit();
         if (cryptoCore.verify()) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    calendar = Calendar.getInstance();
+                    currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
                     int currentLogNumber = sharedPreferences.getInt(Constants.SystemParameters.NUMBER_OF_LOGS, 0);
                     editor.putInt(Constants.SystemParameters.NUMBER_OF_LOGS, currentLogNumber + 1);
                     editor.putString(Constants.SystemParameters.LOG_STATE + (currentLogNumber + 1), "Verified");
@@ -706,6 +697,8 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    calendar = Calendar.getInstance();
+                    currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
                     int currentLogNumber = sharedPreferences.getInt(Constants.SystemParameters.NUMBER_OF_LOGS, 0);
                     editor.putInt(Constants.SystemParameters.NUMBER_OF_LOGS, currentLogNumber + 1);
                     editor.putString(Constants.SystemParameters.LOG_STATE + currentLogNumber + 1, "Not verified");
@@ -760,9 +753,11 @@ public class VerificationActivity extends AppCompatActivity implements NfcAdapte
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("VerifierData", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         //Initializing EPOCH
-        String EPOCH = sharedPreferences.getString(Constants.SystemParameters.EPOCH, "00000000");
+        //String EPOCH = sharedPreferences.getString(Constants.SystemParameters.EPOCH, "00000000");
+        String EPOCH = "01280421";
         //Generating NONCE
-        String NONCE = cryptoCore.generateNonce().toUpperCase();
+        //String NONCE = cryptoCore.generateNonce().toUpperCase();
+        String NONCE = "6237EB155B271AB642156C1F36AF4F0ED056C2E93E994909E41CB421E7391FDB";
         editor.putString(Constants.SystemParameters.NONCE, NONCE);
         editor.commit();
         apduCommand.setINS(ApduCommandValues.INS.INS_COMPUTE_PROOF_OF_KNOWLEDGE_SEQ_DISCLOSED);
